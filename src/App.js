@@ -1,21 +1,25 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
 
 const App = () => {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Header />
-      <main>
+      <main className="py-3">
         <Container>
-          <h1>Welcome to Posified</h1>
-          <HomeScreen />
+          <Routes>
+            <Route path="/product/:id" element={<ProductScreen />} />
+            <Route path="/" element={<HomeScreen />} exact />
+          </Routes>
         </Container>
       </main>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 };
 

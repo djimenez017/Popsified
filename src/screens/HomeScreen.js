@@ -16,13 +16,11 @@ const HomeScreen = () => {
     dispatch(listProducts());
   }, [dispatch]);
 
-  console.log(products);
-
   return (
     <div>
       <h1>Latest Products</h1>
       {loading ? (
-       <Loader/>
+        <Loader />
       ) : error ? (
         <Message variant="error">{error}</Message>
       ) : (
